@@ -23,5 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import './assets/scss/reset.scss'
+@import './assets/scss/reset.scss';
+@import './assets/scss/mixin.scss';
+@import './assets/scss/model.scss';
+@import './assets/scss/button.scss';
 </style>

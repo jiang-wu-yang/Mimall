@@ -87,7 +87,7 @@
                   <div class="item-info">
                     <h3>{{arr.name}}</h3>
                     <p>{{arr.content}}</p>
-                    <p class="price">{{arr.price}}元</p>
+                    <p class="price" @click="addCart()">{{arr.price}}元</p>
                   </div>
                 </div>
               </div>
@@ -97,11 +97,25 @@
       </div>
     </div>
     <server-bar></server-bar>
+    <model 
+    title="提示" 
+    sureText="查看购物车"
+    btnType="1" 
+    modelType="middle" 
+    :showModel="false"
+    v-on:submit="gotoCart"
+    v-on:cancel="showModel=false"
+    >
+      <template v-slot:body>
+        <p>商品添加成功</p>
+      </template>
+    </model>
   </div>
 </template>
 
 <script>
 import ServerBar from "../components/ServerBar.vue";
+import Model from "../components/Model.vue";
 
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
@@ -110,6 +124,7 @@ export default {
   name: "index",
   components: {
     ServerBar,
+    Model,
     Swiper,
     SwiperSlide
   },
@@ -337,7 +352,7 @@ export default {
             name: "小米9",
             content: "晓龙6245，看了看撒讲道理卡上",
             price: 2999
-          },
+          }
         ],
         [
           {
@@ -367,10 +382,19 @@ export default {
             name: "小米9",
             content: "晓龙6245，看了看撒讲道理卡上",
             price: 2999
-          },
-        ],
-      ]
+          }
+        ]
+      ],
+      showModel:false
     };
+  },
+  methods:{
+    addCart(){
+      showModel = true;
+    },
+    gotoCart(){
+      this.$router.push('/cart');
+    }
   }
 };
 </script>
@@ -506,10 +530,10 @@ export default {
               font-size: 14px;
               line-height: 24px;
               color: $colorG;
-              &.new-pro{
+              &.new-pro {
                 background-color: #7ecf68;
               }
-              &.kill-pro{
+              &.kill-pro {
                 background-color: #e82626;
               }
             }
