@@ -60,15 +60,41 @@
       </div>
       <div class="ads-box">
         <a :href="'/product/'+item.id" v-for="(item,i) in adsList" :key="i">
-          <img :src="item.img" alt="">
+          <img :src="item.img" alt>
         </a>
       </div>
       <div class="banner">
         <a href="/product/30">
-          <img src="/imgs/banner-1.png" alt="">
+          <img src="/imgs/banner-1.png" alt>
         </a>
       </div>
-      <div class="product-box"></div>
+      <div class="product-box">
+        <div class="container">
+          <h2>手机</h2>
+          <div class="wrapper">
+            <div class="banner-left">
+              <a href="/product/25">
+                <img src="/imgs/mix-alpha.jpg" alt>
+              </a>
+            </div>
+            <div class="list-box">
+              <div class="list" v-for="(item,i) in phoneList" :key="i">
+                <div class="item" v-for="(arr,a) in item" :key="a">
+                  <span>新品</span>
+                  <div class="item-img">
+                    <img :src="arr.img" alt>
+                  </div>
+                  <div class="item-info">
+                    <h3>{{arr.name}}</h3>
+                    <p>{{arr.content}}</p>
+                    <p class="price">{{arr.price}}元</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <server-bar></server-bar>
   </div>
@@ -264,23 +290,85 @@ export default {
           }
         ]
       ],
-      adsList:[
+      adsList: [
         {
-          id:33,
-          img:'/imgs/ads/ads-1.png'
+          id: 33,
+          img: "/imgs/ads/ads-1.png"
         },
         {
-          id:48,
-          img:'/imgs/ads/ads-2.jpg'
+          id: 48,
+          img: "/imgs/ads/ads-2.jpg"
         },
         {
-          id:45,
-          img:'/imgs/ads/ads-3.png'
+          id: 45,
+          img: "/imgs/ads/ads-3.png"
         },
         {
-          id:47,
-          img:'/imgs/ads/ads-4.jpg'
+          id: 47,
+          img: "/imgs/ads/ads-4.jpg"
         }
+      ],
+      phoneList: [
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+        ],
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米9",
+            content: "晓龙6245，看了看撒讲道理卡上",
+            price: 2999
+          },
+        ],
       ]
     };
   }
@@ -367,16 +455,84 @@ export default {
       }
     }
   }
-  .ads-box{
+  .ads-box {
     @include flex();
     margin-top: 14px;
     margin-bottom: 31px;
-    a{
+    a {
       width: 296px;
       height: 167px;
     }
-    .banner{
+    .banner {
       margin-bottom: 50px;
+    }
+  }
+  .product-box {
+    background-color: $colorJ;
+    padding: 30px 0 50px;
+    h2 {
+      font-size: $fontF;
+      height: 21px;
+      line-height: 21px;
+      color: $colorB;
+      margin-bottom: 20px;
+    }
+    .wrapper {
+      display: flex;
+      .banner-left {
+        margin-right: 16px;
+        img {
+          width: 224px;
+          height: 619px;
+        }
+      }
+      .list-box {
+        .list {
+          @include flex();
+          width: 986px;
+          margin-bottom: 14px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .item {
+            width: 236px;
+            height: 302px;
+            background-color: $colorG;
+            text-align: center;
+            span {
+            }
+            .item-img {
+              img {
+                height: 195px;
+              }
+            }
+            .item-info {
+              h3 {
+                font-size: $fontJ;
+                color: $colorB;
+                line-height: $fontJ;
+              }
+              p {
+                color: $colorD;
+                line-height: 13px;
+                margin: 6px auto 13px;
+              }
+              .price {
+                color: #f20a0a;
+                font-size: $fontJ;
+                font-weight: bold;
+                cursor: pointer;
+                &::after {
+                  content: "";
+                  margin-left: 5px;
+                  vertical-align: middle;
+                  @include bgimg(22px, 22px, "/imgs/icon-cart-hover.png");
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
