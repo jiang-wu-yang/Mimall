@@ -156,32 +156,10 @@ export default {
       ]
     };
   },
-  filters: {
-    currency(val) {
-      if (!val) return "0.00";
-      return "￥" + val.toFixed(2) + "元";
-    }
-  },
-  mounted() {
-    this.getProductList();
-  },
   methods: {
       gologin(){
           this.$router.push('/login');
       },
-    // getProductList() {
-    //   this.axios
-    //     .get("/products", {
-    //       params: {
-    //         categoryId: "100012"
-    //       }
-    //     })
-    //     .then(res => {
-    //       if (res.list.length > 6) {
-    //         this.phoneList = res.list.slice(0, 6);
-    //       }
-    //     });
-    // },
     goToCart(){
         this.$router.push('/cart');
     }
@@ -282,7 +260,7 @@ export default {
             overflow: hidden;
             border-top: 1px solid #e5e5e5;
             box-shadow: 0 7px 6px 0 rgba(0, 0, 0, 0.11);
-            z-index: 10;
+            z-index: 20;
             transition: all 0.5s;
             background-color: #fff;
             .product {
