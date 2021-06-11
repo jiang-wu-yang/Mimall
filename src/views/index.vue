@@ -2,8 +2,53 @@
   <div class="index">
     <div class="container">
       <div class="swiper-box">
-        <swiper :options="swiperOptionTop" class="swiper-container">
-          <swiper-slide v-for="(item,i) in slideList" :key="i">
+        <div class="nav-menu">
+          <ul class="menu-wrap">
+            <li class="menu-item">
+              <a href="javascript:;">手机 电话卡</a>
+              <div class="children">
+                <ul v-for="(item,i) in menuList" :key="i">
+                  <li v-for="(sub,a) in item" :key="a">
+                    <a :href="'/product/'+sub.id">
+                      <img :src="sub.img" alt>
+                      {{sub.name}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">电视 电话卡</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">笔记本 电话卡</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">家电 电话卡</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">出行 电话卡</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">智能 电话卡</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">电源 电话卡</a>
+              <div class="children"></div>
+            </li>
+            <li class="menu-item">
+              <a href="javascript:;">箱包 电话卡</a>
+              <div class="children"></div>
+            </li>
+          </ul>
+        </div>
+        <swiper :options="swiperOptionTop">
+          <swiper-slide v-for="(item,i) in slideList" :key="i" data-swiper-autoplay="5000">
             <a :href="'/product/'+item.id">
               <img :src="item.img" alt>
             </a>
@@ -23,18 +68,37 @@
 
 <script>
 import ServerBar from "../components/ServerBar.vue";
-import 'swiper/dist/css/swiper.min.css';
-import 'swiper/dist/js/swiper.min';
+
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+import "swiper/dist/css/swiper.css";
 
 export default {
   name: "index",
   components: {
-    ServerBar
+    ServerBar,
+    Swiper,
+    SwiperSlide
   },
   data() {
     return {
       swiperOptionTop: {
-        
+        autoplay: true,
+        loop: true,
+        effect: "cube",
+        cubeEffect: {
+          slideShadows: true,
+          shadow: true,
+          shadowOffset: 100,
+          shadowScale: 0.6
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
       },
       slideList: [
         {
@@ -57,16 +121,221 @@ export default {
           id: "",
           img: "/imgs/slider/slide-5.jpg"
         }
+      ],
+      menuList: [
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米cc9"
+          },
+          {
+            id: 31,
+            img: "/imgs/item-box-2.png",
+            name: "小米cc9"
+          },
+          {
+            id: 32,
+            img: "/imgs/item-box-3.jpg",
+            name: "小米cc9"
+          },
+          {
+            id: 33,
+            img: "/imgs/item-box-4.jpg",
+            name: "小米cc9"
+          }
+        ],
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米cc9"
+          },
+          {
+            id: 31,
+            img: "/imgs/item-box-2.png",
+            name: "小米cc9"
+          },
+          {
+            id: 32,
+            img: "/imgs/item-box-3.jpg",
+            name: "小米cc9"
+          },
+          {
+            id: 33,
+            img: "/imgs/item-box-4.jpg",
+            name: "小米cc9"
+          }
+        ],
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米cc9"
+          },
+          {
+            id: 31,
+            img: "/imgs/item-box-2.png",
+            name: "小米cc9"
+          },
+          {
+            id: 32,
+            img: "/imgs/item-box-3.jpg",
+            name: "小米cc9"
+          },
+          {
+            id: 33,
+            img: "/imgs/item-box-4.jpg",
+            name: "小米cc9"
+          }
+        ],
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米cc9"
+          },
+          {
+            id: 31,
+            img: "/imgs/item-box-2.png",
+            name: "小米cc9"
+          },
+          {
+            id: 32,
+            img: "/imgs/item-box-3.jpg",
+            name: "小米cc9"
+          },
+          {
+            id: 33,
+            img: "/imgs/item-box-4.jpg",
+            name: "小米cc9"
+          }
+        ],
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米cc9"
+          },
+          {
+            id: 31,
+            img: "/imgs/item-box-2.png",
+            name: "小米cc9"
+          },
+          {
+            id: 32,
+            img: "/imgs/item-box-3.jpg",
+            name: "小米cc9"
+          },
+          {
+            id: 33,
+            img: "/imgs/item-box-4.jpg",
+            name: "小米cc9"
+          }
+        ],
+        [
+          {
+            id: 30,
+            img: "/imgs/item-box-1.png",
+            name: "小米cc9"
+          },
+          {
+            id: 31,
+            img: "/imgs/item-box-2.png",
+            name: "小米cc9"
+          },
+          {
+            id: 32,
+            img: "/imgs/item-box-3.jpg",
+            name: "小米cc9"
+          },
+          {
+            id: 33,
+            img: "/imgs/item-box-4.jpg",
+            name: "小米cc9"
+          }
+        ]
       ]
     };
   }
 };
 </script>
 <style lang="scss">
+@import "./../assets/scss/mixin.scss";
+@import "./../assets/scss/config.scss";
 .index {
   .swiper-box {
-    .swiper-container{
+    .nav-menu {
+      position: absolute;
+      width: 264px;
       height: 451px;
+      z-index: 10;
+      padding: 26px 0;
+      box-sizing: border-box;
+      background-color: #55585a7a;
+      .menu-wrap {
+        .menu-item {
+          height: 50px;
+          line-height: 50px;
+          &:hover {
+            .children {
+              display: block;
+            }
+            background-color: $colorA;
+          }
+          a {
+            display: block;
+            position: relative;
+            font-size: 16px;
+            color: #ffffff;
+            padding-left: 30px;
+            &:after {
+              position: absolute;
+              right: 30px;
+              top: 17.5px;
+              content: "";
+              @include bgimg(10px, 15px, "/imgs/icon-arrow.png");
+            }
+          }
+          .children {
+            display: none;
+            width: 962px;
+            height: 451px;
+            background-color: $colorG;
+            position: absolute;
+            top: 0;
+            left: 264px;
+            border: 1px solid $colorH;
+            ul {
+              display: flex;
+              justify-content: space-between;
+              height: 75px;
+              li {
+                height: 75px;
+                line-height: 75px;
+                flex: 1;
+                padding-left: 23px;
+              }
+              a {
+                color: $colorB;
+                font-size: 14px;
+              }
+              img {
+                width: 42px;
+                height: 35px;
+                vertical-align: middle;
+                margin-right: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .swiper-container {
+      height: 451px;
+      .swiper-button-prev {
+        left: 274px;
+      }
       img {
         width: 100%;
       }
