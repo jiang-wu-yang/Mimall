@@ -10,12 +10,14 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 //图片懒加载
 import VueLazyLoad from 'vue-lazyload'
+import VueCookie from 'vue-cookie'
 
 //使用swiper插件
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
 
 //应用axios
 Vue.use(VueAxios,axios);
+Vue.use(VueCookie);
 Vue.use(VueLazyLoad,{
   loading:'/imgs/loading-svg/loading-bars.svg'
 })

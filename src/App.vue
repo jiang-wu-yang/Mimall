@@ -18,6 +18,14 @@ export default {
   },
   mounted(){
     
+  },
+  methods:{
+    getUser(){
+      
+    },
+    getCartCount(){
+
+    }
   }
 }
 </script>
