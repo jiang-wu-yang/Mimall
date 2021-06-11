@@ -80,7 +80,7 @@
             <div class="list-box">
               <div class="list" v-for="(item,i) in phoneList" :key="i">
                 <div class="item" v-for="(arr,a) in item" :key="a">
-                  <span>新品</span>
+                  <span class="new-pro">新品</span>
                   <div class="item-img">
                     <img :src="arr.img" alt>
                   </div>
@@ -500,10 +500,23 @@ export default {
             background-color: $colorG;
             text-align: center;
             span {
+              display: inline-block;
+              width: 67px;
+              height: 22px;
+              font-size: 14px;
+              line-height: 24px;
+              color: $colorG;
+              &.new-pro{
+                background-color: #7ecf68;
+              }
+              &.kill-pro{
+                background-color: #e82626;
+              }
             }
             .item-img {
               img {
                 height: 195px;
+                width: 100%;
               }
             }
             .item-info {
