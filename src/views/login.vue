@@ -47,7 +47,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from "vuex";
+import { mapActions } from "vuex";   //1.解构一个mapActions对象
 export default {
   name: "login",
   data() {
@@ -68,7 +68,7 @@ export default {
         .then(res => {
           this.$cookie.set("userId", res.id, { expires: "Session" });
           // this.$store.dispatch('saveUserName',res.username);
-          this.saveUserName(res.username);
+          this.saveUserName(res.username);//3.
           this.$router.push({
             name: "index",
             params: {
@@ -77,7 +77,7 @@ export default {
           });
         });
     },
-    ...mapActions(["saveUserName"]),
+    ...mapActions(["saveUserName"]),  //2.
     register() {
       this.axios
         .post("/user/register", {

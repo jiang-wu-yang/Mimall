@@ -13,7 +13,7 @@
           <a href="javascri:;" @click="gologin" v-if="!username">登录</a>
           <a href="javascri:;" v-if="username">我的订单</a>
           <a href="javascri:;" class="my-cart" @click="goToCart">
-            <span class="icon-cart"></span> 购物车
+            <span class="icon-cart"></span> 购物车{{cartCount}}
           </a>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default {
   name: "nav-header",
   data() {
     return {
-      username: "",
+      // username: this.$store.state.username,
       phoneList: [
         {
           img:'/imgs/nav-img/nav-1.png',
@@ -155,6 +155,14 @@ export default {
         }
       ]
     };
+  },
+  computed:{
+    username(){
+      return this.$store.state.username;
+    },
+    cartCount(){
+      return this.$store.state.cartCount;
+    }
   },
   methods: {
       gologin(){
